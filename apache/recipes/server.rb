@@ -8,13 +8,11 @@ package 'httpd' do
   action :install
 end
 
-file '/var/www/html/index.html' do
-  content "System Info
-  
-  IPADDRESS : #{node['ipaddress']}
-  HOSTNAME  : #{node['hostname']}
-  CPU       : #{node['cpu']['0']['mhz']}
-  "
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
+  variables(
+  :name => 'Jiss Joseph'
+  )
 end
 
 service 'httpd' do
