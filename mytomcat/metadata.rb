@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures mytomcat'
 long_description 'Installs/Configures mytomcat'
-version '0.1.0'
+version '0.1.1'
 depends 'tomcat', '= 2.5.2'
 depends 'java', '= 1.50.0'
 # If you upload to Supermarket you should set this so your cookbook

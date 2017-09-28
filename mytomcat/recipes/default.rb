@@ -18,12 +18,22 @@ tomcat_install 'helloworld' do
   tomcat_group 'tomcat'
 end
 
-cookbook_file '/opt/tomcat_helloworld/conf/server.xml' do
-  source 'helloworld_server.xml'
+#cookbook_file '/opt/tomcat_helloworld/conf/server.xml' do
+#  source 'helloworld_server.xml'
+#  owner 'root'
+#  group 'root'
+#  mode '0644'
+#  notifies :restart, 'tomcat_service[helloworld]'
+#end
+
+template '/opt/tomcat_helloworld/conf/server.xml' do
+  source 'server.xml.erb'
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, 'tomcat_service[helloworld]'
+  variables(
+  :port  => '8090'
+  )
 end
 
 remote_file '/opt/tomcat_helloworld/webapps/sample.war' do
