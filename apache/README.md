@@ -1,4 +1,4 @@
 # apache
 
-TODO: Enter the cookbook description here.
+TODO: Enter the cookbook description.
 
